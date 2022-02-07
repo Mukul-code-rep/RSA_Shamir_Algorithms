@@ -17,15 +17,18 @@ App Dependencies:
 How to run the app on CLI:
     Go to the directory where the file 'RSA_Shamir_algo.py' in your system is.
     The command which runs it on CLI is:
-    python3 RSA_Shamir_algo.py
+    python3 RSA_Shamir_algo.py n k msg
     Alternatively,
-    python RSA_Shamir_algo.py
+    python RSA_Shamir_algo.py n k msg
+    where 'n' is the number of shares you want to break the private key in, 'k' is the number of required shares needed to rebuild the private key and msg is the message
+    that you want to try the encryption and decryption on.
+    Now, it's not necessary for you to provide these arguments because if you don't, the app will ask you for them. Also, any extra arguments provided will be overlooked.
     
     Even if you are not in the same directory as the file, you can still run it by giving a relative or an absolute path to the file.
     Like,
-    python3 /home/User/Downloads/RSA_Shamir_algo.py
+    python3 /home/User/Downloads/RSA_Shamir_algo.py n k msg
     or,
-    python3 ../../ABC/XYZ/RSA_Shamir_algo.py
+    python3 ../../ABC/XYZ/RSA_Shamir_algo.py n k msg
     
     
 How to run the unit test:
