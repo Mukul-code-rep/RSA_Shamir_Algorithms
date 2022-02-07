@@ -22,9 +22,11 @@ How to run the app on CLI:
 
     Go to the directory where the file 'RSA_Shamir_algo.py' in your system is.
     The command which runs it on CLI is:
+    
     python3 RSA_Shamir_algo.py n k msg
     Alternatively,
     python RSA_Shamir_algo.py n k msg
+    
     where 'n' is the number of shares you want to break the private key in, 'k' is the number of required shares needed 
     to rebuild the private key and msg is the message that you want to try the encryption and decryption on.
     Now, it's not necessary for you to provide these arguments because if you don't, the app will ask you for them. 
@@ -43,6 +45,7 @@ How to run the unit test:
     The python library used in the unit test should be pre-installed with python.
     Similarly to running the CLI, go to the directory where the file 'unit_test.py' in your system is.
     he command which runs it on CLI is:
+    
     python3 unit_test.py
     Alternatively,
     python unit_test.py
