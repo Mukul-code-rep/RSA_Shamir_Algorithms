@@ -90,9 +90,24 @@ def decrypt_message(cipher, private_key):
 if __name__ == "__main__":
     print("Welcome to RSA and Shamir algorithm testing")
     private_key, public_key = generate_key_pair()
-
-    n = int(input("Enter the number of shares you want for the private key: "))
-    k = int(input("Enter the least amount of shares needed to reconstruct the private key: "))
+    
+    if len(sys.argv) < 2:
+        n = int(input("Enter the number of shares you want for the private key: "))
+        k = int(input("Enter the least amount of shares needed to reconstruct the private key: "))
+        msg = input("Enter the message you would like to encrypt: ")
+    else:
+        if len(sys.argv) == 2:
+            n = int(sys.argv[1])
+            k = int(input("Enter the least amount of shares needed to reconstruct the private key: "))
+            msg = input("Enter the message you would like to encrypt: ")
+        elif len(sys.argv) == 3:
+            n = int(sys.argv[1])
+            k = int(sys.argv[2])
+            msg = input("Enter the message you would like to encrypt: ")
+        else:
+            n = int(sys.argv[1])
+            k = int(sys.argv[2])
+            msg = str(sys.argv[3])
 
     shares, k = shards(n, k, private_key)
 
@@ -101,6 +116,7 @@ if __name__ == "__main__":
     index = input("Enter the index of shards that you want to use "
                   "to reconstruct the key (separate the values by ','): ").split(',')
     index = set(index)
+    
     if len(index) < k:
         sys.exit(f"You need at least {k} shares.")
     if len(index) > n:
@@ -110,7 +126,6 @@ if __name__ == "__main__":
 
     re_private_key, re_public_key = keys_from_files(k, shares_indices)
 
-    msg = "Hello."
     cipher = encrypt_message(msg, public_key)
     text = decrypt_message(cipher, re_private_key)
 
