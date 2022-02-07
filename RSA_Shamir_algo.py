@@ -4,7 +4,7 @@ from Crypto.PublicKey import RSA
 import sys
 
 
-def keys_to_file(public_key, private_key_shares):
+def keys_to_file(public_key, private_key_shares: list):
     '''This function writes the public key and the private key
     broken into shards in the respective files'''
 
@@ -73,7 +73,7 @@ def generate_key_pair():
     return private_key, public_key
 
 
-def encrypt_message(message, public_key):
+def encrypt_message(message: str, public_key):
     '''Encrypts a message using RSA public key'''
 
     cipher = PKCS1_OAEP.new(public_key)
